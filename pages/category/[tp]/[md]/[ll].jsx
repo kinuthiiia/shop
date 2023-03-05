@@ -57,7 +57,7 @@ export default function Category() {
           {[
             1, 2, 3, 4, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20,
           ].map((product) => (
-            <Mproduct />
+            <Mproduct key={product?.id} />
           ))}
         </div>
       </div>
