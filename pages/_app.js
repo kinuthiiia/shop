@@ -13,8 +13,12 @@ function MyApp({ Component, pageProps }) {
       emotionCache={myCache}
       withNormalizeCSS
       theme={{
-        /** Put your mantine theme override here */
         colorScheme: "light",
+        // fontFamily: "Prompt",
+        fontWeight: "light",
+        breakpoints: {
+          sm: 500,
+        },
       }}
     >
       <Component {...pageProps} />

@@ -1,4 +1,4 @@
-import { Button } from "@mantine/core";
+import { Button, Text } from "@mantine/core";
 import { IconStar, IconTrash } from "@tabler/icons";
 
 export default function McartItem() {
@@ -6,13 +6,15 @@ export default function McartItem() {
     <div className="h-[120px] mb-4 shadow-sm flex space-x-4">
       <img src="/1.jpg" alt="product" className="h-full" />
       <div className="w-full">
-        <p>Lige smart watch </p>
-        <span className="flex items-baseline space-x-4 ">
-          <h1 className="font-bold tracking-tight text-[1.5rem] py-2">
-            Ksh. 459
+        <Text c="dimmed">Ligo smartwatch waterproof</Text>
+        <div className="flex items-baseline space-x-2">
+          <h1 className="text-[1.4rem] font-semibold text-orange-500 tracking-tight">
+            Ksh. 450
           </h1>
-          <p className="text-[0.8rem] line-through">Ksh. 600</p>
-        </span>
+          <Text fz="xs" td="line-through">
+            Ksh. 600
+          </Text>
+        </div>
         <div className="flex justify-between w-full">
           <div className="flex space-x-1">
             <p className="mr-2">123 sold</p>

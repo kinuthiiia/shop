@@ -1,9 +1,12 @@
 import { Badge, Button, Space, Text } from "@mantine/core";
 import { IconClock, IconPlaneDeparture, IconStar } from "@tabler/icons";
+import { useRouter } from "next/router";
 
 export default function Mproduct() {
+  const router = useRouter();
+
   return (
-    <div className="min-w-[155px] relative">
+    <div className="min-w-[155px] relative" onClick={() => router.push("/id")}>
       <Button
         style={{
           position: "absolute",
@@ -15,7 +18,12 @@ export default function Mproduct() {
       >
         <IconPlaneDeparture size={24} />
       </Button>
-      <Badge className="absolute right-0" color="orange" size="lg">
+      <Badge
+        className="absolute right-0"
+        color="orange"
+        size="sm"
+        radius={null}
+      >
         -18%
       </Badge>
       <img src="/1.jpg" alt="product" className="w-[150px]" />
@@ -43,8 +51,8 @@ export default function Mproduct() {
         </p>
       </div>
 
-      <Badge color="red" radius={0}>
-        <IconClock className="inline mr-2" />
+      <Badge color="red" radius={0} size="lg">
+        <IconClock className="inline mr-2" size={16} />
         02:15:12
       </Badge>
     </div>
