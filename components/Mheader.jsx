@@ -243,17 +243,19 @@ export default function Mheader({ noSearch }) {
         {/* Drawer content */}
         <Space h={30} />
 
-        {categories.map((category) => (
+        {categories.map((category, i) => (
           <NavLink
+            key={i}
             label={
               <h2 className="font-bold text-gray-600">{category?.label}</h2>
             }
             childrenOffset={28}
           >
-            {category?.ml?.map((sub_category) => (
-              <NavLink label={sub_category?.label} childrenOffset={28}>
-                {sub_category?.ll?.map((mini_category) => (
+            {category?.ml?.map((sub_category, j) => (
+              <NavLink key={j} label={sub_category?.label} childrenOffset={28}>
+                {sub_category?.ll?.map((mini_category, k) => (
                   <NavLink
+                    key={k}
                     label={mini_category?.label}
                     component="a"
                     href="/category/clothing/men/shoes"
