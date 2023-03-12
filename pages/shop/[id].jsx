@@ -27,7 +27,7 @@ export default function Shop() {
                     size={16}
                     className="inline"
                   />{" "}
-                  4.5
+                  <strong>4.5</strong>/5
                 </p>
                 <Text fz="xs" c="dimmed">
                   {" "}
@@ -60,15 +60,26 @@ export default function Shop() {
           </div>
         </div>
         <div className="flex space-x-2 w-full mt-4">
+          <Button size="xs" color="orange" fullWidth variant="outline">
+            Message
+          </Button>
           <Button size="xs" color="orange" fullWidth>
             Follow
           </Button>
+        </div>
+        <div className="mt-4">
+          <Text fz="sm" c="dimmed">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Aut, odit,
+            itaque sequi, dolorum expedita reprehenderit error sint amet est
+            iusto voluptate repudiandae dignissimos unde doloribus
+            necessitatibus? Porro animi velit magni!
+          </Text>
         </div>
       </div>
 
       <div className="p-5">
         <div>
-          <Carousel maw="95%" loop mx="auto" withIndicators height={200}>
+          <Carousel maw="100%" loop mx="auto" withIndicators height={200}>
             <Carousel.Slide className="bg-red-200">1</Carousel.Slide>
             <Carousel.Slide className="bg-red-200">2</Carousel.Slide>
             <Carousel.Slide className="bg-red-200">3</Carousel.Slide>

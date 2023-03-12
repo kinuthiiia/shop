@@ -6,7 +6,7 @@ export default function Mproduct() {
   const router = useRouter();
 
   return (
-    <div className="min-w-[155px] relative" onClick={() => router.push("/id")}>
+    <div className="min-w-[155px] relative " onClick={() => router.push("/id")}>
       <Button
         style={{
           position: "absolute",

@@ -5,8 +5,11 @@ import Mproduct from "../components/Mproduct";
 
 import { IconHome, IconSearch, IconUser, IconAdjustments } from "@tabler/icons";
 import Head from "next/head";
+import { useRouter } from "next/router";
 
 export default function Index() {
+  const router = useRouter();
+
   return (
     <div>
       <Head>
@@ -30,7 +33,9 @@ export default function Index() {
             <h1 className="text-[1.5rem] font-bold tracking-tight mb-3">
               Flash Sales⚡
             </h1>
-            <UnstyledButton>See all &rarr;</UnstyledButton>
+            <UnstyledButton onClick={() => router.push(`/expand/flash_sales`)}>
+              See all &rarr;
+            </UnstyledButton>
           </div>
           <Space h={25} />
           <div className="flex overflow-x-auto gap-x-10">
@@ -46,7 +51,9 @@ export default function Index() {
             <h1 className="text-[1.5rem] font-bold tracking-tight mb-3">
               Discover New
             </h1>
-            <UnstyledButton>See all &rarr;</UnstyledButton>
+            <UnstyledButton onClick={() => router.push(`/expand/discover_new`)}>
+              See all &rarr;
+            </UnstyledButton>
           </div>
           <Space h={25} />
           <div className="flex overflow-x-auto gap-x-10">
@@ -62,7 +69,11 @@ export default function Index() {
             <h1 className="text-[1.5rem] font-bold tracking-tight mb-3">
               Picks For You
             </h1>
-            <UnstyledButton>See all &rarr;</UnstyledButton>
+            <UnstyledButton
+              onClick={() => router.push(`/expand/picks_for_you`)}
+            >
+              See all &rarr;
+            </UnstyledButton>
           </div>
           <Space h={25} />
           <div className="flex overflow-x-auto gap-x-10">
@@ -78,7 +89,9 @@ export default function Index() {
             <h1 className="text-[1.5rem] font-bold tracking-tight mb-3">
               Top Deals
             </h1>
-            <UnstyledButton>See all &rarr;</UnstyledButton>
+            <UnstyledButton onClick={() => router.push(`/expand/top_deals`)}>
+              See all &rarr;
+            </UnstyledButton>
           </div>
           <Space h={25} />
           <div className="flex overflow-x-auto gap-x-10">
@@ -91,5 +104,3 @@ export default function Index() {
     </div>
   );
 }
-
-const Home = () => {};

@@ -1,11 +1,16 @@
 import {
+  ActionIcon,
   Avatar,
   Badge,
+  Box,
   Button,
+  Divider,
   Drawer,
   Indicator,
   Input,
+  Menu,
   NavLink,
+  rem,
   Space,
   Tabs,
   Text,
@@ -16,10 +21,12 @@ import Link from "next/link";
 import McartItem from "./McartItem";
 import {
   IconAdjustments,
+  IconArrowUpLeft,
   IconRss,
   IconSearch,
   IconShoppingCart,
   IconTrolley,
+  IconX,
 } from "@tabler/icons";
 import Mprocessing from "./Mprocessing";
 import Mclosed from "./Mclosed";
@@ -27,6 +34,7 @@ import Mclosed from "./Mclosed";
 export default function Mheader({ noSearch }) {
   const [cartOpen, setCartOpen] = useState(false);
   const [categoriesOpen, setCategoriesOpen] = useState(false);
+  const [searchOpen, setSearchOpen] = useState(false);
 
   const categories = [
     {
@@ -119,7 +127,7 @@ export default function Mheader({ noSearch }) {
       </div>
 
       {!noSearch && (
-        <>
+        <div className="relative">
           <Space h={5} />
 
           <div className="flex space-x-3">
@@ -129,7 +137,10 @@ export default function Mheader({ noSearch }) {
               rightSection={<IconSearch color="#d9d9d9" size={16} />}
               placeholder="Search product"
               className="w-[calc(100%-50px)]"
+              onFocus={() => setSearchOpen(true)}
+              onBlur={() => setSearchOpen(false)}
             />
+
             <Button
               onClick={() => setCategoriesOpen(true)}
               style={{
@@ -142,7 +153,71 @@ export default function Mheader({ noSearch }) {
               <IconAdjustments size={24} />
             </Button>
           </div>
-        </>
+
+          {searchOpen && (
+            <div
+              style={{ zIndex: 99 }}
+              className="absolute top-[60px] h-[400px] bg-white w-full p-5 shadow-lg "
+            >
+              <Divider
+                my="xs"
+                variant="dashed"
+                labelPosition="center"
+                label={
+                  <>
+                    <Box ml={5}>Search History</Box>
+                  </>
+                }
+              />
+              <div className="flex gap-3 my-6">
+                {[1, 2, 3].map((el) => (
+                  <Badge
+                    key={el}
+                    variant="outline"
+                    pr={3}
+                    color="orange"
+                    rightSection={
+                      <ActionIcon
+                        size="xs"
+                        color="orange"
+                        radius="xl"
+                        variant="transparent"
+                      >
+                        <IconX size={rem(10)} />
+                      </ActionIcon>
+                    }
+                  >
+                    iphone
+                  </Badge>
+                ))}
+              </div>
+              <Divider
+                my="xs"
+                variant="dashed"
+                labelPosition="center"
+                label={
+                  <>
+                    <IconSearch size={12} />
+                    <Box ml={5}>Search Results</Box>
+                  </>
+                }
+              />
+              <div className="max-h-[230px] overflow-y-scroll">
+                {[1, 2, 3, 4, 1, 2, 3, 4, 1, 2, 3, 4].map((el) => {
+                  return (
+                    <div
+                      key={el}
+                      className="flex justify-between my-3 items-center"
+                    >
+                      <Text fw={500}>Iphone XR</Text>
+                      <IconArrowUpLeft size={16} stroke={0.7} />
+                    </div>
+                  );
+                })}
+              </div>
+            </div>
+          )}
+        </div>
       )}
 
       {/* Cart drawer */}

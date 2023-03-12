@@ -9,6 +9,7 @@ import {
   Text,
 } from "@mantine/core";
 import { IconClock, IconHeart, IconShare, IconStar } from "@tabler/icons";
+import { useRouter } from "next/router";
 import { useState } from "react";
 import { useRef } from "react";
 import Mheader from "../components/Mheader";
@@ -17,6 +18,7 @@ import Mproduct from "../components/Mproduct";
 export default function Account() {
   const [flash, setFlash] = useState(true);
   const productDescription = useRef();
+  const router = useRouter();
 
   return (
     <div>
@@ -179,6 +181,7 @@ export default function Account() {
             variant="outline"
             color="orange"
             style={{ width: "50%" }}
+            onClick={() => router.push(`/shop/1`)}
           >
             View store
           </Button>
@@ -218,28 +221,35 @@ export default function Account() {
 
         {/* End */}
       </div>
-      <div className=" flex space-x-3 fixed bottom-0 w-full p-4 bg-white">
-        <Button fullWidth uppercase color="orange" size="lg">
-          Add to cart
-        </Button>
-        <Button
-          color="orange"
-          variant="subtle"
-          size="lg"
-          style={{ width: 48, height: 48 }}
-          p={0}
-        >
-          <IconHeart />
-        </Button>
-        <Button
-          color="orange"
-          variant="subtle"
-          size="lg"
-          style={{ width: 48, height: 48 }}
-          p={0}
-        >
-          <IconShare />
-        </Button>
+      <div className=" flex justify-between fixed bottom-0 w-full p-4 bg-white items-center">
+        <Button.Group>
+          <Button uppercase color="orange">
+            Add to cart
+          </Button>
+          <Button variant="default" uppercase>
+            message
+          </Button>
+        </Button.Group>
+        <div className="space-x-3 flex">
+          <Button
+            color="orange"
+            variant="subtle"
+            size="lg"
+            style={{ width: 36, height: 48 }}
+            p={0}
+          >
+            <IconHeart />
+          </Button>
+          <Button
+            color="orange"
+            variant="subtle"
+            size="lg"
+            style={{ width: 36, height: 48 }}
+            p={0}
+          >
+            <IconShare />
+          </Button>
+        </div>
       </div>
     </div>
   );
@@ -247,24 +257,29 @@ export default function Account() {
 
 const Review = () => {
   return (
-    <Card shadow="sm" padding="lg" radius="md" withBorder>
+    <Card shadow="sm" padding="sm" radius="md" withBorder>
       <div className="flex justify-between mb-1">
-        <div className="flex space-x-3 items-baseline">
+        <div className="flex space-x-3 items-center">
           <Avatar radius="xl" color="orange">
             TM
           </Avatar>
-          <p className="">Tim</p>
+          <div>
+            <Text>Tim</Text>
+            <p className="items-baseline mr-2 text-[0.7rem]">
+              <IconStar
+                color="#FFD700"
+                fill="#FFD700"
+                size={12}
+                className="inline"
+              />{" "}
+              <strong>4.5</strong>/5
+            </p>
+          </div>
         </div>
         <div>
-          <p className="items-baseline mr-2">
-            <IconStar
-              color="#FFD700"
-              fill="#FFD700"
-              size={16}
-              className="inline"
-            />{" "}
-            4/5
-          </p>
+          <Text c="dimmed" fz="xs">
+            {new Date().toDateString()}
+          </Text>
         </div>
       </div>
       <Space h={10} />
