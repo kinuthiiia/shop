@@ -68,8 +68,11 @@ export default function Account() {
             </Accordion.Control>
             <Accordion.Panel>
               <div className="flex overflow-x-auto gap-x-10">
-                {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map((product) => (
-                  <div className="min-w-[90px] min-h-[120px] space-y-4">
+                {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map((following) => (
+                  <div
+                    key={following}
+                    className="min-w-[90px] min-h-[120px] space-y-4"
+                  >
                     <Link href="/shop/1">
                       <img
                         src="/denri.webp"
