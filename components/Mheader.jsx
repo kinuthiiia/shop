@@ -30,8 +30,10 @@ import {
 } from "@tabler/icons";
 import Mprocessing from "./Mprocessing";
 import Mclosed from "./Mclosed";
+import { useRouter } from "next/router";
 
 export default function Mheader({ noSearch }) {
+  const router = useRouter();
   const [cartOpen, setCartOpen] = useState(false);
   const [categoriesOpen, setCategoriesOpen] = useState(false);
   const [searchOpen, setSearchOpen] = useState(false);
@@ -206,6 +208,7 @@ export default function Mheader({ noSearch }) {
                 {[1, 2, 3, 4, 1, 2, 3, 4, 1, 2, 3, 4].map((el) => {
                   return (
                     <div
+                      onClick={() => router.push(`/search/${el}`)}
                       key={el}
                       className="flex justify-between my-3 items-center"
                     >
@@ -271,6 +274,7 @@ export default function Mheader({ noSearch }) {
                 </Text>
                 <Button
                   variant="white"
+                  onClick={() => router.push("/checkout")}
                   fullWidth
                   size="lg"
                   className="uppercase mt-4"

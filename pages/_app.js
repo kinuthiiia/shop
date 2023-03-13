@@ -1,5 +1,10 @@
 import "../styles/globals.css";
 import { createEmotionCache, MantineProvider } from "@mantine/core";
+import { Uploader } from "uploader"; // Installed by "react-uploader".
+
+export const uploader = Uploader({
+  apiKey: "free", // Get production API keys from Upload.io
+});
 
 function MyApp({ Component, pageProps }) {
   const myCache = createEmotionCache({
