@@ -197,7 +197,7 @@ export default function Account() {
             </Accordion.Control>
             <Accordion.Panel>
               {[1, 2, 3, 4, 5].map((el) => (
-                <div className="flex w-full justify-between mb-3">
+                <div key={el} className="flex w-full justify-between mb-3">
                   <div>
                     <span className="flex items-baseline">
                       <Text>Juja</Text>
